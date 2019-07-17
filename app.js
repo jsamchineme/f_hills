@@ -6,6 +6,7 @@ const bodyparser       = require('body-parser'),
 
 require('dotenv').config();
 
+console.log('database:', process.env.MONGODB_URL);
 
 mongoose.connect(process.env.MONGODB_URL, {useNewUrlParser:true});
 
@@ -38,7 +39,7 @@ app.post('/client', (req,res)=>{
         if (err) {
             res.render('/')
         }else{
-            res.redirect('/client')
+            res.redirect('/client?saved')
 
         }
     })
