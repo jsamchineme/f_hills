@@ -4,8 +4,10 @@ const bodyparser       = require('body-parser'),
       expressSanitizer = require('express-sanitizer'),
       app = express();
 
+require('dotenv').config();
 
-mongoose.connect('mongodb://localhost:27017/fredie_db', {useNewUrlParser:true});
+
+mongoose.connect(process.env.MONGODB_URL, {useNewUrlParser:true});
 
 app.set("view engine", "ejs");
 app.use(express.static("public"));
