@@ -39,8 +39,11 @@ app.post('/client', (req,res)=>{
         if (err) {
             res.render('/')
         }else{
-            res.redirect('/client?saved')
-
+            // res.redirect('/client?saved')
+            return res.status(200).send({
+                message: 'saved',
+                data: newClient
+            });
         }
     })
 })
@@ -49,23 +52,4 @@ app.post('/client', (req,res)=>{
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, ()=> {
     console.log(`server started on port ${PORT}......`);
-    
 })
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
